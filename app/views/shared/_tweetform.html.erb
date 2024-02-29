@@ -1,5 +1,5 @@
 <%= form_with model: Tweet.new, url: tweets_path,method: :post, local: true, class:"w-100" do|f| %>
 	<%= f.text_area :body, placeholder: "Write uor tweet here!", class: "form-control w-100" %>
     <%= f.file_field :image, class: "form-control" %>
-	<%= f.submit %>
+	<%= f.submit "Post Tweet", class: "btn btn-primary", style: "padding: 8px 16px; background-color: #007bff; color: #fff; border-radius: 4px; text-decoration: none; transition: background-color 0.3s ease-in-out;" %>
 <% end %>

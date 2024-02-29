@@ -1,22 +1,27 @@
 <div class="container mx-auto text-center">
   <div class="flex space-x-4">
-    <%= link_to dashboard_path, class: "text-blue-500" do %>
+    <%= link_to dashboard_path, style: "color: #4caf50; position: relative; text-decoration: none;" do %>
       Home
+      <span style="position: absolute; bottom: 0; left: 0; height: 2px; width: 100%; background-color: #4caf50; transform: scaleX(0); transform-origin: 0 0; transition: transform 0.3s ease-in-out;"></span>
     <% end %>
   </div>
-   <div class="flex space-x-4">
-      <%= link_to 'profile_path', class: "text-blue-500" do %>
-        Profile
-      <% end %>
-   </div>
   <div class="flex space-x-4">
-      <%= link_to "#", class: "text-blue-500" do %>
-        Explore
-      <% end %>
-   </div>
-    <div class="flex space-x-4">
-      <%= link_to "Log out", destroy_user_session_path, data: {"turbo-method": :delete}, class: "btn btn-primary" %>
-    </div>
+    <%= link_to dashboard_path, style: "color: #4caf50; position: relative; text-decoration: none;" do %>
+    Explore
+      <span style="position: absolute; bottom: 0; left: 0; height: 2px; width: 100%; background-color: #4caf50; transform: scaleX(0); transform-origin: 0 0; transition: transform 0.3s ease-in-out;"></span>
+    <% end %>
+  </div>
+  <div class="flex space-x-4">
+    <%= link_to 'profile_path', style: "color: #4caf50; position: relative; text-decoration: none;" do %>
+      Profile
+      <span style="position: absolute; bottom: 0; left: 0; height: 2px; width: 100%; background-color: #4caf50; transform: scaleX(0); transform-origin: 0 0; transition: transform 0.3s ease-in-out;"></span>
+    <% end %>
+  </div>
+
+  <div class="flex space-x-4">
+    <%= link_to "Log out", destroy_user_session_path, data: {"turbo-method": :delete}, class: "btn btn-primary", style: "padding: 8px 16px; background-color: #007bff; color: #fff; border-radius: 4px; text-decoration: none; transition: background-color 0.3s ease-in-out;" %>
+  </div>
+
   </div>
 </div>
 
@@ -25,21 +30,22 @@
             <div class="py-4 px-2">
               <div class="d-flex align-items-center">
                 <div class="flex-shrink-0 me-3">
-                  <%# <%= image_tag tweet.user.avatar, size: "48x48", class: "rounded-circle" %>
+                  <%= image_tag tweet.user.avatar, size: "48x48", class: "rounded-circle" %>
                 </div>
                 <div class="flex-grow-1">
-                  <p>@<%= tweet.user.email %> . <%= tweet.created_at.strftime("%b %-d") %></p>
+                  <p class= "font-bold">@<%= tweet.user.username %> . <%= tweet.created_at.strftime("%b %-d") %></p>
                   <p class="mb-0"><%= tweet.body %></p>
-                  <%# <%= image_tag tweet.image, size: "250", class: "rounded" if tweet.image.attached? %>
-                    <div>
-                      <ul>
-                        <li><%= link_to "Edit", edit_tweet_path(tweet) %></li>
-                        <li><%= link_to "Destroy", tweet_path(tweet), data: {
-                                          turbo_method: :delete,
-                                          turbo_confirm: "Are you sure?"
-                                        } %></li>
-                      </ul>
-                    </div>
+                  <%= image_tag tweet.image, size: "250", class: "rounded" if tweet.image.attached? %>
+                <div style="display: inline-block; margin-right: 10px;">
+                    <ul style="list-style-type: none; padding: 0;">
+                      <li style="display: inline-block; margin-right: 10px;">
+                        <%= link_to "Edit", edit_tweet_path(tweet), style: "text-decoration: none; color: #007bff; padding: 5px 10px; border: 1px solid #007bff; border-radius: 4px;" %>
+                      </li>
+                      <li style="display: inline-block;">
+                        <%= link_to "Destroy", tweet_path(tweet), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, style: "text-decoration: none; color: #dc3545; padding: 5px 10px; border: 1px solid #dc3545; border-radius: 4px;" %>
+                      </li>
+                    </ul>
+                </div>
                   <div class="d-flex justify-content-evenly">
                     <%= link_to "#", class: "text-decoration-none text-black " do %>
                       <span>Views</span>
