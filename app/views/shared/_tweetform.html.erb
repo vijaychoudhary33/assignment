@@ -1,0 +1,5 @@
+<%= form_with model: Tweet.new, url: tweets_path,method: :post, local: true, class:"w-100" do|f| %>
+	<%= f.text_area :body, placeholder: "Write uor tweet here!", class: "form-control w-100" %>
+    <%= f.file_field :image, class: "form-control" %>
+	<%= f.submit %>
+<% end %>

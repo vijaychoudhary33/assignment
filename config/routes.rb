@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tweets
   get :dashboard, to: "dashboard#index"
   root "home#index"
   devise_for :users
